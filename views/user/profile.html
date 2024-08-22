@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile <%= mystudent.username %>
+    </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="/images/app.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/style/profile.css">
+</head>
+
+<body>
+    <%- include ('../partials/userNavbar.html') %>
+        <div class="login-section profile-section">
+            <div class="login-part profile_part">
+                <div class="img">
+                    <img src="/<%= mystudent.stud_img %>" alt="">
+                </div>
+                <div class="personal-info">
+                    <% 
+                    let name =  mystudent.username 
+                    let namearr = name.split(" ");
+                    %>
+                    <p class="name">
+                        <%= namearr[0] %> <%= namearr[1] %>
+                    </p>
+                    <textarea name="aboutStudent" id="aboutStudent" class="desc" readonly cols="30" rows="3"
+                        ondblclick="setEditable()" placeholder="Double click to add bio"><%= mystudent.bio %></textarea>
+                    <button class="btn-s active"
+                        style="width: 60px; font-size: 10px; min-height: 20px; box-shadow: 0 2px 3px #fafafa;"
+                        onclick="saveBio('<%= mystudent._id %>')" id="saveBio">Save</button>
+                    <div class="personal-data" >
+                        <div class="p-info">
+                            <p class="name">Name</p>
+                            <p class="name-ans">: <%= namearr[0] %> <%= namearr[1] %></p>
+                        </div>
+                        <div class="p-info">
+                            <p class="name">Roll No</p>
+                            <p class="name-ans">: <%= mystudent.roll_no %></p>
+                        </div>
+                        <div class="p-info">
+                            <p class="name">Branch</p>
+                            <p class="name-ans">: <%= mystudent.branch %></p>
+                        </div>
+                        <div class="p-info">
+                            <p class="name">Year</p>
+                            <p class="name-ans">: <%= mystudent.current_year %></p>
+                        </div>
+                        <div class="p-info">
+                            <p class="name">Phone</p>
+                            <p class="name-ans">: <%= mystudent.mobile_no %></p>
+                        </div>
+                        <div class="p-info">
+                            <p class="name">Email</p>
+                            <p class="name-ans">: <%= mystudent.email %></p>
+                        </div>
+                        <div class="p-info">
+                            <a href="/user/1/updateProfile?update=<%= mystudent._id %>" class="btn-s">Update Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="s-info-part">
+                <div class="issued-book">
+                    <div class="m-head" style="font-size: small; pointer-events: none;">
+                        Profile > Issued Books
+                    </div>
+                    <% if (issuedBook.length > 0 ) { %>
+                        <div class="books-con">
+                            <% var issue_count="0";%>
+                            <% issuedBook.forEach(books=> { %>
+                            <% if(!books.isReturn & books.student_info.enrollment_no == mystudent.enrollment_no){ %>
+                                <% issue_count="1"; %>
+                            <div class="card">
+                                <div class="imgContainer">
+                                    <img src="/<%= books.book_info.book_img %>" alt="<%= issue_count %>">
+                                </div>
+                                <div class="infoBox">
+                                    <div class="ac-no">AC NO : <%= books.book_info.accession_no %></div>
+                                    <div class="title"> <%= books.book_info.book_title %><%= issue_count %> </div>
+                                    <div class="description">
+                                        <div class="div">
+                                            <% 
+                                            let date = new Date(books.book_info.issueDate);
+                                            date = date.toLocaleString();
+                                            %>
+                                            <p>Issue date</p><span><%= date %></span>
+                                        </div>
+                                        <div class="div">
+                                            <% 
+                                            let r_date = new Date(books.book_info.returnDate);
+                                            r_date = r_date.toLocaleString();
+                                            %>
+                                            <p>Return date</p><span><%= r_date %></span>
+                                        </div>
+                                        <div class="div">
+                                            <p>Related To </p><span><%= books.book_info.related_to %></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }%>
+                            <% }) %>
+                            <% if(issue_count == "0"){%>
+                                    <h1 style="position:absolute; left: 40%;top: 40%; color:#c9c9c9; pointer-events: none;">0 ISSUED BOOKS !!!</h1>
+                            <% }%>
+                        </div>
+                    <% }else{ %>
+                        <h1 style="position:absolute; left: 40%;top: 40%; color:#c9c9c9; pointer-events: none;">0 ISSUED BOOKS !!!</h1>
+                    <%} %>
+                </div>
+            </div>
+            <script src="/js/students.js"></script>
+</body>
+
+</html>

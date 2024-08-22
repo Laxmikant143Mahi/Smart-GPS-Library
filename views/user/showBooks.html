@@ -1,0 +1,119 @@
+<%- include ('../partials/studentHeader.html') %>
+    <!-- <link rel="stylesheet" href="/style/profile.css"> -->
+</head>
+<body>
+    <%- include ('../partials/userNavbar.html') %>
+    <div class="landing-con book-cards">
+        <div id="book-browse-container">
+            <div id="menu-con">
+                <div class="cat-menu">
+                    <div class="m-head" style="font-size: 14px;">
+                        Departments
+                    </div>
+                    <div class="m-options">
+                        <% department.forEach(dept=> {  %>
+                            <!-- <option><%= dept %></option> -->
+                            <li><a href="/user/1/dept/?dept=<%= dept %>"  class="list-item"><%= dept %></a></li>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="cat-menu">
+                    <div class="m-head" style="font-size: 14px;">
+                        Book Scheme
+                    </div>
+                    <div class="m-options">
+                        <% book_schema.forEach(schema=> {  %>
+                            <li><a href="/user/1/scheme/?scheme=<%= schema %>" class="list-item"><%= schema %></a></li>
+                        <% }); %>
+                    </div>
+                </div>
+                
+                <!-- <div class="cat-menu">
+                    <div class="m-head">
+                        Categories
+                    </div>
+                    <div class="m-options">
+                        <li><a href="#Semester1">Category 1</a></li>
+                        <li><a href="#Semester2">Category 2</a></li>
+                        <li><a href="#Semester3">Category 3</a></li>
+                        <li><a href="#Semester4">Category 4</a></li>
+                    </div>
+                </div>
+                <div class="cat-menu">
+                    <div class="m-head">
+                        Categories
+                    </div>
+                    <div class="m-options">
+                        <li><a href="">Category 1</a></li>
+                        <li><a href="">Category 2</a></li>
+                        <li><a href="">Category 3</a></li>
+                        <li><a href="">Category 4</a></li>
+                    </div>
+                </div> -->
+            </div>
+            <div id="books-con">
+                <div class="m-head">
+                    Wel-come to our library
+                </div>
+                <!-- <form action="" id="searchform1">
+                    <input type="text" placeholder="Search a book" required>
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </form> -->
+                <div class="u-books-con">
+                    <div class="sem" id="Semester1">
+                        <% if (book_count > 0 ) { %>
+                        <div class="m-head" style="font-size: small;">
+                            All Books
+                        </div>
+                        <div class="sem-books">
+                        <% books.forEach(book=> { %>
+                            <div class="card ">
+                                <div class="imgContainer">
+                                    <img src="/<%= book.book_img %>" alt="Image Not Found">
+                                </div>
+                                <div class="infoBox">
+                                    <div class="ac-no">AC NO : <%= book.un_issued_no[0] %></div>
+                                    <div class="head" style="font-size: 13px;"><%= book.book_title %></div>
+                                    <div class="para2"><%= book.remarks %></div>
+                                    <div class="para2">Related To : <%= book.related_to %> Dept..</div>
+                                </div>
+                                <div class="actions">
+                                    <% var match = false;
+                                        var i_len = mystudent.bookIssueInfo.length;
+                                    %>
+                                    <% mystudent.bookIssueInfo.forEach(book_info=> { %>
+                                        <% if(book_info == book._id) { %>
+                                        <button class="btn-s" style="width: 90px; font-weight: normal; height: 25px;" >Return</button>
+                                    <% match=true; }}) %>
+                                    <% if(!match) { %>
+                                    <% if(book.un_issued_no.length != '0'){ %>
+                                    <button class="btn-s" style="width: 90px; font-weight: normal; height: 25px;" onclick="issueBook('<%= mystudent._id %>','<%= book._id %>','<%= book.un_issued_no[0] %>')">Issue</button>
+                                    <% }else{ %>
+                                        <button class="btn-s" style="width: 90px; font-weight: normal; height: 25px;">Un-Available</button>
+                                    <% } %>
+                                    <% } %>
+                                    <button class="btn-e" style="width: 90px; font-weight: normal; height: 25px;" onclick="viewMyBook('<%= book.book_title %>','<%= book._id %>')">View</button>
+                                </div>
+                            </div>
+                        <% }); %>
+                        <% } else { %>
+                            <div class="msg error" style="height: 30px;">
+                                <p class="head">
+                                    No Books Found
+                                </p>
+                                <button id="closeBtn"></button>
+                            </div>
+                        <% } %>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-popup" id="view-popup"></div>
+    </div>
+    <script src="/js/alerts.js"></script>
+    <script src="/js/students.js"></script>
+    <script src="/js/viewBook.js"></script>
+</body>
+
+</html>

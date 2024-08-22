@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOD LOGIN</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="/images/app.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/login_p.css">
+</head>
+
+<body>
+    <div class="login-section">
+        <div class="btnbox backbtn">
+            <a href="/" class="backBtn">
+                <i class="uil uil-navigator"></i>
+                <span class="btnText">Go to home</span>
+            </a>
+        </div>
+        <div class="login-part">
+            <div class="log-container">
+                <%- include ('../partials/alerts.html') %>
+                    <form action="/auth/hod-login" method="post">
+                        <div class="logo-details">
+                            <i class='bx bx-book-reader'></i>
+                            <span class="logo_name">g.p. Smart Library</span>
+                            <span class="logo_name" style="font-size: 14px; margin: 0;">HOD LOGIN</span>
+                        </div>
+                        <div class="inputbox">
+                            <select id="overdue-department" name="branch" required>
+                                <% if(department.length > 0) { %>
+                                <% department.forEach(dept=> { %>
+                                <option><%= dept %></option>
+                                <% }); }else {%>
+                                    <option>Internal Error</option>
+                                <% }%>
+                            </select>
+                        </div>
+                        <div class="inputbox">
+                            <input type="password" name="password" id="password" required>
+                            <span>Password</span>
+                        </div>
+                        <div class="btnbox">
+                            <button class="backBtn" type="reset">
+                                <i class="uil uil-navigator"></i>
+                                <span class="btnText">Clear</span>
+                            </button>
+                            <button class="submit" type="submit">
+                                <span class="btnText">Login</span>
+                                <i class="uil uil-navigator"></i>
+                            </button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        <div class="image-part">
+            <div class="bgimg"></div>
+            <div class="bgcover"></div>
+            <div class="msg-con">
+                <h2 class="r-head">GPS Library</h2>
+                <p class="r-description">"Libraries store the energy that fuels the imagination. They open up windows to
+                    the world and inspire us to explore and achieve, and contribute to improving our quality of life."
+                </p>
+                <button class="next">></button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/alerts.js"></script>
+</body>
+
+</html>

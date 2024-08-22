@@ -1,0 +1,102 @@
+#notification_drawer{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    height: 80vh;
+    width: 350px;
+    background: #fafbfc;
+    border: 3px solid white;
+    box-shadow: 0 0 8px rgba(185, 185, 185, 0.288) ;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 101;
+    transform: translateY(-10px);
+    transition: .3s ease;
+    display: none;
+  }
+  #notification_drawer.active{
+    transform: translateY(10px);
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .main_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    padding: 0 8px;
+  }
+  #all_notifications{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    width: 100%;
+    overflow: scroll;
+    padding: 5px 0;
+  }
+  #all_notifications::-webkit-scrollbar{
+    display: none;
+  }
+  #all_notifications .not-box{
+    width: 100%;
+    min-height: 150px;
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: #fdfdfd;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  #all_notifications .not-box .user-info{
+    width: 100%;
+    height: 50px;
+   display: flex;
+   /* justify-content: space-around; */
+   align-items: center;
+    padding: 4px;
+  }
+  #all_notifications .not-box .user-info .img{
+    height: 100%;
+    width: 50px;
+    margin-right: 10px; 
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  #all_notifications .not-box .user-info .img img{
+    height: 88%;
+    border-radius: 50%;
+  }
+  #all_notifications .not-box .user-info .img.book img{
+    height: 80%;
+    border-radius: 0;
+  }
+  .dec{
+    overflow: scroll;height: 100%;
+  }
+  .dec.user{
+    overflow: scroll;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+  }
+  .dec::-webkit-scrollbar{
+  display: none;
+  }
+  #all_notifications .not-box .actions{
+    padding: 5px 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  

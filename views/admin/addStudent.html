@@ -1,0 +1,144 @@
+<%- include ('../partials/adminHeader.html') %>
+<link rel="stylesheet" href="/css/forms.css">
+    <title>Admin Add Student</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <%- include ('../partials/adminSidebar.html') %>
+    </div>
+    <section id="home-section">
+        <nav id="navbar">
+            <%- include ('../partials/adminNavbar.html') %>
+            <%- include ('../partials/alerts.html') %>
+        </nav>
+        <div id="admin-container">
+            <div id="admin-container1">
+                <div class="container">
+                    <header>Add New Student</header>
+                    <form action="/admin/students/add" enctype="multipart/form-data" method="post">
+                        <div class="form first">
+                            <div class="details personal">
+                                <span class="title">Student Details</span>
+                                <div class="fields">
+                                    <div class="input-field">
+                                        <label>Enrollment No*</label>
+                                        <input type="number" name="enrollment_no" placeholder="Student enrollment no" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Roll No</label>
+                                        <input type="text" name="roll_no" placeholder="Student roll-no" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Student Name</label>
+                                        <input type="text" name="username" placeholder="Student name" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Student Email</label>
+                                        <input type="text" name="email" placeholder="Student email" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Mobile No</label>
+                                        <input type="number" name="mobile_no" placeholder="Student mobile no" required>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Adhar No</label>
+                                        <input type="text" name="adhar_no" placeholder="Student adhar no" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Gender</label>
+                                        <select name="gender" required>
+                                            <option >Select Gender</option>
+                                            <option>Male</option>
+                                            <option>Fe-male</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Year</label>
+                                        <select name="current_year" required>
+                                            <option >Select Year</option>
+                                            <option>First year</option>
+                                            <option>Second year</option>
+                                            <option>Third Year</option>
+                                        </select>
+                                    </div>
+                                    <!-- <div class="input-field">
+                                        <label>Book Schem</label>
+                                        <select  name="book_schema" required>
+                                            <option disabled selected>Select Schem</option>
+                                            <option>Development Of Library</option>
+                                            <option>Book Bank</option>
+                                            <option>Textile Library</option>
+                                            <option>Social Wellfair</option>
+                                            <option>+ Add New</option>
+                                        </select>
+                                    </div> -->
+                                    <div class="input-field">
+                                        <label>Branch</label>
+                                        <!-- <select name="branch" required>
+                                            <option>Select Branch</option>
+                                            <option>Computer</option>
+                                            <option>Information Tech</option>
+                                            <option>Mechanical</option>
+                                            <option>Civil</option>
+                                            <option>+Add Branch</option>
+                                        </select> -->
+                                        <select id="branch" name="branch"  required>
+                                            <option>Select Branch</option>
+                                            <% department.forEach(dept=> {  %>
+                                                <option><%= dept %></option>
+                                            <% }); %>
+                                            <option>+ Add Department</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="details ID">
+                                <!-- <span class="title">Identity Details</span> -->
+                                <div class="fields">
+                                    <div class="input-field">
+                                        <label>Book Limit*</label>
+                                        <input type="number" name="book_limit" placeholder="Enter book source"  required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Student Photo (.jpg/.jpeg/.png)</label>
+                                        <input type="file" name="stud_img" accept="image/*" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Student State</label>
+                                        <select name="status" id="stud_status" required>
+                                            <option >Select Status</option>
+                                            <option>Active</option>
+                                            <option>In-Active</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Remarks</label>
+                                        <input type="text" name="remarks" placeholder="Remarks" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Set Password*</label>
+                                        <input type="text" name="password" placeholder="password" required>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <div class="backBtn">
+                                        <i class="uil uil-navigator"></i>
+                                        <span class="btnText">Clear</span>
+                                    </div>
+                                    <button class="sumbit">
+                                        <span class="btnText">Add Student</span>
+                                        <i class="uil uil-navigator"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="/js/d_app.js"></script>
+</body>
+</html>

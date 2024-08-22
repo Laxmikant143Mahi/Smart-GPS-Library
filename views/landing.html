@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="shortcut icon" href="/app.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/landing.css">
+    <title>E-SMART-GPS-LIBRARY</title>
+</head>
+    <%- include ('partials/alerts.html') %>
+<body>
+    <nav class="navbar"><a href="">
+            <div class="logo">
+                <i class='bx bx-book-reader'></i>
+                <span class="logo_name heading" style="font-size: larger;">Smart Library</span>
+            </div>
+        </a>
+        <div class="nav-menu">
+            <a href="">Home</a>
+            <a href="#facility">Facilities</a>
+            <a href="#ourTeam">About</a>
+            <!-- <a href="#help">Help</a> -->
+        </div>
+        <div class="sign-btn">
+            <a href="/auth/user-login">Student Login</a>
+        </div>
+    <%- include ('partials/alerts.html') %>
+</nav>
+    <div class="landing-con" data-aos="fade-in">
+        <div class="bgimg"></div>
+        <div class="cover"></div>
+        <div class="part part1">
+            <h2 class="heading">
+                Wel-come to Smart G.P.S. Library...
+            </h2>
+            <div class="info" style="font-size:17px;">
+                “Libraries really are wonderful. They’re better than bookshops, even. I mean bookshops make a profit on selling you books, but libraries just sit there lending you books quietly out of the goodness of their hearts.”
+            </div>
+            <div class="btn">
+                <a href="/auth/user-login">Login as student</a>
+            </div>
+        </div>
+        <div class="part part2 "><img src="img3.png" alt=""></div>
+    </div>
+    <div class="landing-con book-cards" >
+        <h2 class="heading" data-aos="flip-down">
+            NEWLY ADDED BOOKS
+        </h2>
+        <button class="back" onclick="nextbook(-100)">
+            < </button>
+        <button class="next" onclick="nextbook(100)">></button>
+        <div class="book-card" id="book-card">
+        <% if(books.length>0){ %>
+        <% var book_c = 0;%>
+        <% for(let i=0; i < books.length ; i++){ %>
+            <% book_c++; %>
+            <% if(book_c == 5){break;}%>
+            <div class="card " data-aos="fade-right">
+                <div class="imgContainer">
+                    <img src="/<%= books[i].book_img %>" alt="Image Not Found">
+                </div>
+                <div class="infoBox">
+                    <div class="ac-no">AC NO :<%= books[i].un_issued_no[0] %>
+                    </div>
+                    <div class="head" style="font-size: 13px;">Book Title : <%= books[i].book_title%>
+                    </div>
+                    <div class="para2">
+                        <%= books[i].remarks%>
+                    </div>
+                    <div class="para2">Related To : <%= books[i].related_to %>
+                    </div>
+                </div>
+                <div class="actions">
+                    <!-- <button class="btn-s" style="width: 90px; font-weight: normal; height: 25px;" onclick="issueBook()">Issue</button> -->
+                    <button class="btn-s" style="width: 90px; font-weight: normal; height: 25px;">Issue</button>
+                    <!-- <button class="btn-e" style="width: 90px; font-weight: normal; height: 25px;" onclick="viewBook('<%=  books[i].book_title %>','<%=  books[i]._id %>')">View</button> -->
+                    <button class="btn-e" style="width: 90px; font-weight: normal; height: 25px;">View</button>
+                </div>
+            </div>
+            <% } %>
+        <% } else{%>
+            <center><h3 class="head">No Books Found</h3>
+        <% } %>
+        </div>
+    </div>
+    <div class="landing-con facility" id="facility">
+        <div class="f_container">
+            <div class="service" >
+                <p class="head" data-aos="flip-down"> Admin Facilities</p>
+                <div class="list" data-aos="fade-right">
+                    <div class="item">
+                        <div class="no">1 </div>
+                        <div class="info">Admin -> add new book with required book details with image</div>
+                    </div>
+                    <div class="item">
+                        <div class="no">2</div>
+                        <div class="info">Admin -> update book status 'admin can't delete book permanently </div>
+                    </div>
+                    <div class="item">
+                        <div class="no">3</div>
+                        <div class="info">Admin -> add new student and student login will be generate here.</div>
+                    </div>
+                    <div class="item">
+                        <div class="no">4</div>
+                        <div class="info">Admin -> Manage Book Details </div>
+                    </div>
+                    <div class="item">
+                        <div class="no"></div>
+                        <div class="info">Admin -> 1. Manage Issue/Return Book Details </div>
+                    </div>
+                    <div class="item">
+                        <div class="no"></div>
+                        <div class="info">Admin -> 2. Manage Add/Update Student Details </div>
+                    </div>
+                    <div class="item">
+                        <div class="no"></div>
+                        <div class="info">Admin -> 3. Manage Issue/Update Student Details </div>
+                    </div>
+                    <div class="item">
+                        <div class="no">5</div>
+                        <div class="info">Admin -> Notification </div>
+                    </div>
+                    <div class="item">
+                        <div class="no"></div>
+                        <div class="info">Admin -> Receive Students Issued book request</div>
+                    </div>
+                    <div class="item">
+                        <div class="no"></div>
+                        <div class="info">Admin -> Admin have permission for accept or reject issue book</div>
+                    </div>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/landing3.png" alt="" data-aos="fade-left">
+            </div>
+        </div>
+        <div class="f_container">
+            <div class="img">
+                <img src="/landing4.png" alt="" data-aos="fade-right">
+            </div>
+            <div class="service">
+                <p class="head" data-aos="flip-down"> Student Facilities </p>
+                <div class="list" data-aos="fade-left">
+                    <div class="item">
+                        <div class="no">1</div>
+                        <div class="info">Login -> Student can login after register there information in library</div>
+                    </div>
+                    <div class="item">
+                        <div class="no">2</div>
+                        <div class="info">Books -> Student can Issue Only two books</div>
+                    </div>
+                    <div class="item">
+                        <div class="no">3</div>
+                        <div class="info">Books -> Student can see all available books in library</div>
+                    </div>
+                    <div class="item">
+                        <div class="no">4</div>
+                        <div class="info">Profile -> Student can update bio anytime</div>
+                    </div>
+                    <div class="item">
+                        <div class="no">5</div>
+                        <div class="info">Profile -> Student can't update personal details. you need to go in library for update your data.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="landing-con facility" id="help" style="min-height: 400px;">
+        <div class="f_container">
+            <div class="service">
+                <p class="head" data-aos="flip-down"> How I Can Help ? </p>
+                <div class="list" data-aos="fade-left">
+                    <% for(var i=1; i<=8; i++){%>
+                    <div class="item">
+                        <div class="no"><%= i %></div>
+                        <div class="info">Lorem ipsum dolor sit amet.</div>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+            <div class="img">
+                <img src="/help.png" alt="" data-aos="fade-right">
+            </div>
+        </div>
+    </div> -->
+    </div>
+    <div class="landing-con devlopers" id="ourTeam">
+        <h2 class="heading" data-aos="flip-down">
+            TEAM E-SMARTS
+        </h2>
+        <div class="profile-container">
+            <div class="profile-card" style="width: 200px; height: 300px;" data-aos="slide-left">
+                <div class="img">
+                    <img src="/laxmikant.jpg" alt="Image Not Found" style="height: 80px;width: 80px;">
+                </div>
+                <div class="info-con">
+                    <p class="name"> Mr.Laxmikant S. M.</p>
+                    <p class="name" style="font-size: 12px;"> Student At Government Polytechnic Solapur</p>
+                </div>
+                <div class="social-con">
+                    <a href="">
+                        <i class='bx bxl-instagram'></i>
+                        <span> Instagram </span>
+                    </a>
+                    <a href="">
+                        <i class='bx bxl-linkedin'></i>
+                        <span> Linkedin </span>
+                    </a>
+                    <a href="">
+                        <i class='bx bxl-github'></i>
+                        <span> Git Hub </span>
+                    </a>
+                </div>
+            </div>
+            <div class="profile-card" style="width: 260px; height: 380px;" data-aos="slide-down">
+                <div class="img">
+                    <img src="/logo1.jpeg" alt="Image Not Found">
+                </div>
+                <div class="info-con">
+                    <p class="name">Mr. Ghanasham A. I.</p>
+                    <p class="name" style="font-size: 12px;"> Student At Government Polytechnic Solapur</p>
+                    <p class="about">Product Design,UI/UX Designer, Full-Stack Web developer...</p>
+                </div>
+                <div class="social-con">
+                    <a href="https://www.instagram.com/ghansham_2004" target="_blank">
+                        <i class='bx bxl-instagram'></i>
+                        <span> Instagram </span>
+                    </a>
+                    <a href=" https://www.linkedin.com/in/ghansham-irshetti/" target="_blank">
+                        <i class='bx bxl-linkedin'></i>
+                        <span> LinkedIn </span>
+                    </a>
+                    <a href="https://github.com/Ghanasham2004" target="_blank">
+                        <i class='bx bxl-github'></i>
+                        <span> Git Hub </span>
+                    </a>
+                </div>
+            </div>
+            <div class="profile-card" style="width: 200px; height: 300px;" data-aos="slide-right">
+                <div class="img">
+                    <img src="/manjula.jpeg" alt="Image Not Found" style="height: 80px;width: 80px;">
+                </div>
+                <div class="info-con">
+                    <p class="name">Ms. Manjula V. I.</p>
+                    <p class="name" style="font-size: 12px;"> Student At Government Polytechnic Solapur</p>
+                </div>
+                <div class="social-con">
+                    <a href="">
+                        <i class='bx bxl-instagram'></i>
+                        <span> Instagram </span>
+                    </a>
+                    <a href="">
+                        <i class='bx bxl-linkedin'></i>
+                        <span> LinkedIn </span>
+                    </a>
+                    <a href="">
+                        <i class='bx bxl-github'></i>
+                        <span> Git Hub </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button class="go-top" title="Go Top" onclick="goTop()">
+            <i class='bx bx-up-arrow-alt'></i>
+        </button>
+    </div>
+    
+    <footer  id="footer1">
+        <div class="row copyright">
+            <div class="footer-menu">
+                <a href="/">Home</a>
+                <a style="cursor: pointer;" onclick="OpenForm()">Send Feedback</a>
+                
+            </div>
+            <p>Copyright &copy; <%= new Date().getFullYear(); %> TEAM-E-SMARTS </p>
+        </div>
+    </footer>
+    <div class="feedback-con" id="feedback-con">
+        <form action="/feedback" class="service" method="post">
+            <h2 style="margin-bottom: 5px;">Send Your Feedback</h2>
+            <div class="input-Box">
+                <input type="text" name="username" placeholder="your name" required>
+            </div>
+            <div class="input-Box">
+                <textarea name="feedback" id="feedback" cols="30" rows="5" placeholder="Give your feedback"required></textarea>
+            </div>
+            <div class="input-Box b">
+                <button type="submit" class="btn">Send Feedback</button>
+            </div>
+            <i class='bx bx-x' onclick="CloseForm()"></i>
+        </form>
+    </div>
+    <script>
+        function nextbook(a) {
+            document.getElementById('book-card').scrollBy(a, 0,)
+        }
+        function goTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script src="/js/alerts.js"></script>
+    <script src="/js/viewBook.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

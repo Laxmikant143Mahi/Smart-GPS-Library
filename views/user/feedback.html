@@ -1,0 +1,32 @@
+<%- include ('../partials/studentHeader.html') %>
+    <!-- <link rel="stylesheet" href="/style/profile.css"> -->
+</head>
+<body>
+    <%- include ('../partials/userNavbar.html') %>
+    <div class="landing-con">
+        <div id="user-help-container" style="min-height:85vh;">
+            <div class="head">
+                Send Feedback
+            </div>
+            <div class="help-info" style="padding: 0 110px;">
+                <form action="/user/1/feedback/" class="service" method="post">
+                    <div class="input-Box">
+                        <input type="text" name="username" placeholder="your name" required>
+                    </div>
+                    <div class="input-Box">
+                        <textarea name="feedback" id="feedback" cols="30" rows="5" placeholder="Give your feedback" required></textarea>
+                    </div>
+                    <div class="input-Box">
+                        <button type="submit" class="btn-s">Send Feedback</button>
+                    </div>
+                </form>
+                <div class="img">
+                    <img src="/feedback.png" alt="" data-aos="fade-right">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/students.js"></script>
+</body>
+
+</html>

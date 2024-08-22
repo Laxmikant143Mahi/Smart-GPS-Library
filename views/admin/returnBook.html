@@ -1,0 +1,63 @@
+<%- include ('../partials/tableHeader.html') %>
+    <title>Admin Return Book</title>
+    </head>
+
+    <body>
+        <div class="sidebar" id="sidebar">
+            <%- include ('../partials/adminSidebar.html') %>
+        </div>
+        <section id="home-section">
+            <nav id="navbar">
+                <%- include ('../partials/adminNavbar.html') %>
+                    <%- include ('../partials/alerts.html') %>
+            </nav>
+            <div id="admin-container">
+                <div id="admin-container1">
+                    <div id="returnBook">
+                        <div class="input-field">
+                            <% if(enrollment_no == ""){%>
+                                <input type="text" name="enrollment_no" id="studentEnrollment" placeholder="Enrollment No">
+                            <% }else{ %>
+                                <input type="text" name="enrollment_no" id="studentEnrollment" placeholder="Enrollment NO" value="<%= enrollment_no %>">
+                            <% }%>
+                            <button onclick="getIssuedBook()">Search Student </button>
+                        </div>
+                    </div>
+                    <div id="r-b-container">
+                        <div class="img">
+                            <img src="/no_books.png" alt="">
+                        </div>
+                        <!-- <div class="card">
+                            <div class="imgContainer">
+                                <img src="/java1.jpg" alt="">
+                            </div>
+                            <div class="infoBox">
+                                <div class="ac-no" style="height: 30px; min-width: 100px;">AC NO : 28</div>
+                                <div class="title"> Learning Java</div>
+                                <div class="description">
+                                    <div class="div">
+                                        <p>Issue date</p><span>12-12-23</span>
+                                    </div>
+                                    <div class="div">
+                                        <p>Return date</p><span>12-3-667</span>
+                                    </div>
+                                    <div class="div">
+                                        <p>Book Quantity </p><span>12</span>
+                                    </div>
+                                </div>
+                                <div class="buttonGroup">
+                                    <button class="btn-e">Return</button>
+                                    <button class="btn-s">Re-Issue</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="/js/d_app.js" type="text/javascript"></script>
+        <script src="/js/tableFilter.js"></script>
+        <script src="/js/popup.js"></script>
+    </body>
+    </html>
+    <!-- <script src="/js/app.js"></script> -->

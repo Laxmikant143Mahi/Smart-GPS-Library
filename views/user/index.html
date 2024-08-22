@@ -1,0 +1,161 @@
+<%- include ('../partials/studentHeader.html') %>
+</head>
+<body >
+    <%- include ('../partials/userNavbar.html') %>
+    <div class="landing-con">
+        <div class="bgimg"></div>
+        <div class="cover"></div>
+        <div class="part part1">
+            <h2 class="heading">
+                Wel-come to Smart G.P.S. Library...
+            </h2>
+            <div class="info">
+                "Libraries store the energy that fuels the imagination. They open up windows to the world and inspire us
+                to explore and achieve, and contribute to improving our quality of life."
+            </div>
+        </div>
+    </div>
+    <div class="landing-con book-cards">
+        <h2 class="heading">
+            BROWSE BOOKS
+        </h2>
+        <div id="book-browse-container">
+            <div id="menu-con">
+                <div class="cat-menu">
+                    <div class="m-head" style="font-size: 14px;">
+                        Departments
+                    </div>
+                    <div class="m-options">
+                        <% department.forEach(dept=> {  %>
+                            <!-- <option><%= dept %></option> -->
+                            <li><a href="/user/1/dept/?dept=<%= dept %>"><%= dept %></a></li>
+                        <% }); %>
+                    </div>
+                </div>
+                <div class="cat-menu">
+                    <div class="m-head" style="font-size: 14px;">
+                        Book Scheme
+                    </div>
+                    <div class="m-options">
+                        <% book_scheme.forEach(schema=> {  %>
+                            <li><a href="/user/1/scheme/?scheme=<%= schema %>"><%= schema %></a></li>
+                        <% }); %>
+                    </div>
+                </div>
+                <!-- <div class="cat-menu">
+                    <div class="m-head">
+                        Categories
+                    </div>
+                    <div class="m-options">
+                        <li><a href="#Semester1">Category 1</a></li>
+                        <li><a href="#Semester2">Category 2</a></li>
+                        <li><a href="#Semester3">Category 3</a></li>
+                        <li><a href="#Semester4">Category 4</a></li>
+                    </div>
+                </div>
+                <div class="cat-menu">
+                    <div class="m-head">
+                        Categories
+                    </div>
+                    <div class="m-options">
+                        <li><a href="">Category 1</a></li>
+                        <li><a href="">Category 2</a></li>
+                        <li><a href="">Category 3</a></li>
+                        <li><a href="">Category 4</a></li>
+                    </div>
+                </div> -->
+            </div>
+            <div id="books-con">
+                <div class="m-head">
+                    Wel-come to our library
+                </div>
+                <!-- <form action="" id="searchform1">
+                    <input type="text" placeholder="Search a book" required>
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </form> -->
+                <div class="u-books-con">
+                    <div class="sem" id="Semester1">
+                        <div class="m-head" style="font-size: small;">
+                            All Books
+                        </div>
+                        <div class="sem-books">
+                        <% if (book_count> 0 ) { %>
+                        <% books.forEach(book=> { %>
+                            <div class="card ">
+                                <img src="/<%= book.book_img %>" alt="Image Not Found" onclick="viewMyBook('<%= book.book_title %>','<%= book._id %>')">
+                                <div class="info-box">
+                                    <div class="title">
+                                        <h3><%= book.book_title %></h3>
+                                        <span><%= book.related_to %></span>
+                                    </div>
+                                    <p class="description"><%= book.remarks %></p>
+                                </div>
+                                <div class="ac-no">AC NO : <%= book.un_issued_no[0] %></div>
+                                <div class="actions">
+                                    <% var match = false;
+                                        var i_len = mystudent.bookIssueInfo.length;
+                                    %>
+                                    <% mystudent.bookIssueInfo.forEach(book_info=> { %>
+                                        <% if(book_info == book._id) { %>
+                                        <button class="btn-s" " onclick="ReturnBook()">Return</button>
+                                    <% match=true; }}) %>
+                                    <% if(!match) { %>
+                                    <% if(book.un_issued_no.length != '0'){ %>
+                                    <button class="btn-s" " onclick="issueBook('<%= mystudent._id %>','<%= book._id %>','<%= book.un_issued_no[0] %>')">Issue</button>
+                                    <% }else{ %>
+                                        <button class="btn-s" ">Un-Available</button>
+                                    <% } %>
+                                    <% } %>
+                                    <button class="btn-e"  onclick="viewMyBook('<%= book.book_title %>','<%= book._id %>')">View</button>
+                                </div>
+                            </div>
+                        <% }); %>
+                        <% } else { %>
+                        <% } %>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-popup" id="view-popup">
+            <!-- <div class="info-container">
+                <div class="ac-no btn-s">AC NO : 4545</div>
+                <div class="img">
+                    <img src="/java1.jpg" alt="">
+                </div>
+                <div class="info-text">
+                                    <div class="data">
+                        <div class="b-info">
+                            <p class="name">Email</p>
+                            <p class="name-ans">: Java Learning</p>
+                        </div>
+                        <div class="b-info">
+                            <p class="name">Email</p>
+                            <p class="name-ans">: Java Learning</p>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-s" >Issue</button>
+                        <button class="btn-e" onclick="closeBookPopup()">Ok</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Footer Started Here -->
+    <footer data-aos="fade-in" id="footer1">
+        <div class="row copyright">
+            <div class="footer-menu">
+                <a href="/user/1/">Home</a>
+                <a href="/user/1/profile">Profile</a>
+                <a href="/user/1/feedback/">Send Feedback</a>
+            </div>
+            <p></p>
+            <a href="/user/1/feedback/" style="color: #cfd2d6; font-size: 14px;">Copyright &copy; <%= new Date().getFullYear(); %> TEAM-E-SMARTS </a>
+        </div>
+    </footer>
+    <script src="/js/alerts.js"></script>
+    <script src="/js/students.js"></script>
+    <script src="/js/viewBook.js"></script>
+</body>
+</html>

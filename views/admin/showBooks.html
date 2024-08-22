@@ -1,0 +1,125 @@
+<%- include ('../partials/tableHeader.html') %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <title>Admin all books </title>
+    </head>
+    <body>
+        <div class="sidebar" id="sidebar">
+            <%- include ('../partials/adminSidebar.html') %>
+        </div>
+        <section id="home-section">
+            <nav id="navbar">
+                <%- include ('../partials/adminNavbar.html') %>
+                <%- include ('../partials/alerts.html') %>
+            </nav>
+            <div id="admin-container">
+                <div id="admin-container1">
+                    <div class="t-container">
+                        <div class="div">
+                            <div class="input-field">
+                                <select id="book_scheme" required>
+                                    <option >Book Scheme</option>
+                                    <option>All Books</option>
+                                    <% scheme.forEach(scheme=> {  %>
+                                        <option><%= scheme %></option>
+                                    <% }); %>
+                                    <option>+ Add Schema</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <select id="departments"  required>
+                                    <option>Select Department</option>
+                                    <option>All Departments</option>
+                                    <% department.forEach(dept=> {  %>
+                                        <option><%= dept %></option>
+                                    <% }); %>
+                                    <option>+ Add Department</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <button class="btn-s" style="width: 100px; font-weight: normal;" id="Active" onclick="BookStatus(id)">Active</button>
+                            </div>
+                            <div class="input-field">
+                                <button class="btn-e" style="width: 100px; font-weight: normal;" id="In-Active" onclick="BookStatus(id)">In-Active</button>
+                            </div>
+                        </div>
+                        <form class="searchForm" autocomplete="off">
+                            <div class="input-field" id="t-search">
+                                <input type="text" name="search" id="searchData" placeholder="search-here" required>
+                                <button type="submit" id="sbtn"><i class='bx bx-search'></i></button>
+                                <div class="suggestion-box" id="suggestion-box">
+                                    <li>Java book1</li>
+                                    <li>Java book2</li>
+                                    <li>Java book3</li>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="table-container">
+                        <table class="table" id="mytable">
+                            <thead id="t-head">
+                                <tr class="unsolid">
+                                    <th>P/F</th>
+                                    <th>Acc No</th>
+                                    <th>Title</th>
+                                    <th class="name">Author</th>
+                                    <th>Edition</th>
+                                    <th>Scheme</th>
+                                    <th>Cost</th>
+                                    <th>State</th>
+                                    <th>View</th>
+                                    <!-- <th>Options</th> -->
+                                </tr>
+                            </thead>
+                            <tbody id="myTableRow">
+                                <div class="myrow" style="position: relative;">
+                                <% if (book_count> 0 ) { %>
+                                <% books.forEach(book=> { %>
+                                    <% %>
+                                <tr class="gfgselect solid ">
+                                    <td class="img-book"><img src="/<%=  book.book_img; %>" alt=""></td>
+                                    <td class="book-ac-no">
+                                        <%=  book.accession_no[0]; %> to <%=  book.accession_no[book.accession_no.length-1]; %>
+                                    </td>
+                                    <td class="book_name">
+                                        <%=  book.book_title; %>
+                                    </td>
+                                    <td class="author">
+                                        <%=  book.book_author; %>
+                                    </td>
+                                    <td class="edition">
+                                        <%=  book.book_edition; %>
+                                    </td>
+                                    <td class="book_scheme">
+                                        <%=  book.book_schema; %>
+                                    </td>
+                                    <td class="book_cost">
+                                        <%=  book.book_cost; %>  &#8377
+                                    </td>
+                                   
+                                    <% if (book.book_status=="Active" ) { %>
+                                    <td class="btns"><button class="btn-s" style="width: 100px; font-weight: normal;">Active</button>
+                                    <% } else { %>
+                                    <td class="btns">
+                                        <button class="btn-e" style="width: 100px; font-weight: normal;">In-Active</button>
+                                    </td>
+                                    <% } %>
+                                    <td class="btns">
+                                        <button class="btn-s" style="width: 100px; font-weight: normal;" onclick="showPopUp('<%= book._id %>')">View</button>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                <% } else { %>
+                                <% } %>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pop-up-container" id="pop-up-container" > </div>
+                </div>
+            </div>
+        </section>
+        <script src="/js/d_app.js" type="text/javascript"></script>
+        <script src="/js/tableFilter.js"></script>
+        <script src="/js/popup.js"></script>
+    </body>
+    </html>

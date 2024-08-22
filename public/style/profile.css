@@ -1,0 +1,575 @@
+@import url("../css/colors.css");
+@import url("navbar.css");
+
+.login-section.profile-section {
+  margin: 0 15px;
+  margin-top: 5%;
+  margin-bottom: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  /* border: 2px solid white; */
+  border-radius: 5px;
+}
+.login-section.books-section {
+  margin: 0 8px;
+  margin-top: 5%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  /* background: #000; */
+  border: 3px solid white;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.login-section .login-part,
+.login-section .s-info-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Profile Part CSS */
+.login-section .login-part.profile_part {
+  width: 21%;
+  background: var(--bgcolor);
+  position: relative;
+  padding: 10px;
+  display: flex;
+  border: 2px solid white;
+  justify-content: flex-start;
+}
+.login-section .login-part.profile_part .img {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #fbdeff;   */
+  background-image: url("/pro-bg2.jpg");
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  transition: .3s ease;
+}
+.login-section .login-part.profile_part img {
+  position: absolute;
+  height:100px;
+  width:100px;
+  top: 22%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 0 8px rgba(255, 255, 247, 0.575);
+  border-radius: 50%;
+  transition: .3s ease;
+}
+.login-section .login-part.profile_part  i {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  background: #00000088;
+  top: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #b8b8b8;
+  font-size: 22px;
+  transition: .3s ease;
+  display: none;
+}
+.login-section .login-part.profile_part .img img:hover ~ i,
+.login-section .login-part.profile_part img:hover ~ i {
+  position: absolute;
+  display: block;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  background: #00000088;
+  top: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #b8b8b8;
+  font-size: 22px;
+}
+.login-section .profile_part .personal-info {
+  height: 300px;
+  width: 100%;
+  margin-top: 15%;
+  /* background: #e4e4e4; */
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding-left: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.login-section .profile_part .personal-info .personal-data {
+  margin-top: 15px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 6px;
+}
+.login-section .profile_part .personal-info .personal-data .p-info {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+.login-section .profile_part .personal-info .personal-data .p-info a{
+  display: flex;
+  flex-direction: row;
+  height: 16px;
+  margin-top: 12px;
+  margin-left: -5px;
+  font-size: 13px;
+  min-width: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 12px;
+}
+.login-section .profile_part .personal-info .personal-data .p-info .name {
+  width: 25%;
+  font-size: 12px;
+}
+.login-section .profile_part .personal-info .personal-data .p-info .name-ans {
+  font-size: 13px;
+  letter-spacing: normal;
+}
+.login-section .profile_part .personal-info .name {
+  color: var(--font1);
+  font-weight: bold;
+}
+.login-section .profile_part .personal-info p {
+  color: var(--font3);
+  margin: 4px 0;
+  letter-spacing: 1px;
+}
+
+.log-container .inputbox {
+  position: relative;
+  width: 270px;
+  margin: 14px 0;
+}
+.log-container .inputbox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background: var(--bgcolor);
+  outline: none;
+  color: var(--font3);
+  font-size: 0.9rem;
+}
+
+.log-container .inputbox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.473);
+  border-radius: 3px;
+  background: var(--bgcolor);
+  outline: none;
+  color: var(--font2);
+  font-size: 0.9rem;
+}
+.log-container .inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 13px;
+  pointer-events: none;
+  font-size: 0.7rem;
+  color: var(--font2);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: 0.3s;
+}
+.log-container .inputbox input:focus,
+.log-container .inputbox input:valid {
+  box-shadow: 0 2px 5px rgb(230, 230, 230);
+}
+.log-container .inputbox input:focus ~ span,
+.log-container .inputbox select:focus ~ span,
+.log-container .inputbox select:valid ~ span,
+.log-container .inputbox input:valid ~ span {
+  transform: translateX(10px) translateY(-5px);
+  padding: 0 10px;
+  background: white;
+  font-size: 0.65rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.295);
+  border-right: 1px solid rgba(0, 0, 0, 0.295);
+  letter-spacing: 0.2em;
+}
+
+.btnbox {
+  height: 80px;
+  width: 270px;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btnbox button {
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #4070f4;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  width: 48%;
+  height: 30px;
+  font-weight: 700;
+}
+
+.btnbox .backBtn {
+  background: #e22222;
+}
+
+.btnbox .backBtn:hover {
+  background: #c40707;
+}
+
+.btnbox .submit:hover {
+  background-color: #1750ee;
+  box-shadow: 0 3px 8px rgb(207, 207, 207);
+}
+
+/* Image Part */
+.login-section .s-info-part {
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bgcolor);
+  justify-content: space-between;
+  border: 2px solid white;
+  position: relative;
+}
+
+.login-section .s-info-part .prof-update,
+.login-section .s-info-part .issued-book,
+.login-section .s-info-part .saved-book {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+.login-section .s-info-part .prof-update {
+  height: 100%;
+}
+.login-section .s-info-part .issued-book {
+  height: 44%;
+}
+.login-section .s-info-part .saved-book {
+  height: 54%;
+}
+.login-section .s-info-part .issued-book .books-con,
+.login-section .s-info-part .saved-book .books-con {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 2%;
+}
+
+.books-con .card {
+  width: 48%;
+  height: 180px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: var(--bgcolor);
+  border: 4px solid white;
+  box-shadow: 0 0 8px rgb(241, 241, 241);
+  margin: 5px;
+}
+.books-con::before {
+  content: "";
+  height: 2px;
+  width: 80%;
+  background: var(--bgcolor);
+  border-radius: 100%;
+  position: absolute;
+  padding-left: 15%;
+  bottom: 0;
+}
+.m-head,
+.login-section .s-info-part .saved-book .m-head {
+  font-size: 16px;
+  position: relative;
+  text-transform: capitalize;
+  margin: 15px;
+}
+.m-head::before,
+.login-section .s-info-part .saved-book .m-head::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  height: 1.5px;
+  width: 140px;
+  background: #4e4e4e;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.card .imgContainer {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.card .imgContainer img {
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border: 4px solid white;
+  box-shadow: 0 0 5px rgb(240, 240, 240);
+  transition: all 0.3s ease-in-out;
+}
+.card .imgContainer img:hover {
+  box-shadow: 0 0 5px rgb(223, 222, 222);
+  transform: translateY(-2px);
+}
+.card .infoBox {
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.7rem;
+  gap: .4rem;
+}
+.card .ac-no {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e6fff2;
+  color: #00da74;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  border:2px solid rgb(255, 255, 255);
+  border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+  cursor: pointer;
+  margin: 4px;
+}
+.card .title {
+  font-weight: 600;
+  font-size: 14px;
+  margin: 5px 0;
+}
+.card .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: .5rem 0;
+}
+.card .description .div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.card .description p {
+  width: calc(100% / 2 - 5px);
+}
+.card .description span,
+.card .description p{
+  font-size: 12px;
+}
+.card .description::-webkit-scrollbar {
+  display: none;
+}
+.card .book-quantity {
+  height: 25px;
+  margin: 2px 0;
+}
+.infoBox .buttonGroup {
+  display: flex;
+}
+.infoBox .buttonGroup a {
+  border: 2px solid rgb(255, 255, 255);
+  text-align: center;
+  width: 35%;
+  padding: 3px 0;
+  margin: 0 5px;
+  font-weight: 600;
+  color: #1d1919;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgb(221, 221, 221);
+}
+
+#aboutStudent {
+  margin-top: 4px;
+  min-height: 50px;
+  outline: none;
+  border: none;
+  background: none;
+  resize: none;
+}
+/* update profile */
+.container {
+  width: 100%;
+  height:100%;
+  border-radius: 5px;
+  padding:0 30px;
+  overflow: hidden;
+}
+.container form {
+  position: relative;
+  margin-top: 16px;
+  min-height: 90%;
+  background-color:var(--bgcolor);
+  overflow: scroll;
+}
+.container form::-webkit-scrollbar {
+  display: none;
+}
+.container form .form {
+  position: absolute;
+  min-height: 100%;
+  transition: 0.3s ease;
+}
+
+.container form .fields {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.input-field {
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  flex-direction: column;
+  margin: 4px 0;
+}
+.input-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+.input-field input,
+select {
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  height: 38px;
+  margin: 8px 0;
+}
+.input-field input :focus{
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+.input-field select:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+.input-field select,
+.input-field input[type='date'] {
+  color: #707070;
+}
+.input-field input[type='file'] {
+  padding: 5px;
+}
+input[type='file']::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #4070f4;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type='file']::file-selector-button:hover {
+  background: #265df2;
+}
+.input-field input[type='date']:valid {
+  color: #333;
+}
+.container form .buttons{
+  display: flex;
+  width: calc(100% / 3 - 15px);
+  justify-content: flex-start;
+  align-items: center;
+}
+.container form button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  border: none;
+  outline: none;
+  width: calc(100% / 2 - 8px);
+  border-radius: 5px;
+  margin: 25px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pop_form{
+  position: absolute;
+  top: 0;left: 0;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index: 1;
+  display:none;
+}
+.pop_form.active{
+  position: absolute;
+  top: 0;left: 0;
+  height: 100%;
+  width: 100%;
+  display:block;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index: 1;
+}
+.pop_form form{
+  background: var(--bgcolor);
+  border:2px solid #fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height: 250px;
+  width: 400px;
+  border-radius:5px;
+  box-shadow:0 0 80px 14px rgb(219, 219, 219);
+  position: relative;
+}
+.pop_form form .header{
+  font-weight:600;
+  font-size:18px;
+  margin-bottom: 12px;
+}
+.pop_form form .closer{
+  position: absolute;
+  right: 3%;
+  top:3%;
+  color: #414141;
+  cursor: pointer;
+  font-weight:600;
+  transition:.3s ease;
+}
+.pop_form form .closer:hover{
+  color: #000000;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile <%= mystudent.username %>
+    </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="/images/app.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/style/profile.css">
+</head>
+
+<body>
+    <%- include ('../partials/userNavbar.html') %>
+    <div class="login-section profile-section">
+    <div class="login-part profile_part">
+        <div class="img">
+            <img src="/<%= mystudent.stud_img %>" alt="">
+            <i class='bx bxs-camera-plus' onclick="updateProfile()" title="update pic"></i>
+        </div>
+        <div class="personal-info">
+            <% 
+            let name =  mystudent.username 
+            let namearr = name.split(" ");
+            %>
+            <p class="name">
+                <%= namearr[0] %> <%= namearr[1] %>
+            </p>
+            <textarea name="aboutStudent" id="aboutStudent" class="desc" readonly cols="30" rows="3"
+                ondblclick="setEditable()" placeholder="Double click to add bio"><%= mystudent.bio %></textarea>
+            <button class="btn-s active"
+                style="width: 60px; font-size: 10px; min-height: 20px; box-shadow: 0 2px 3px #fafafa;"
+                onclick="saveBio('<%= mystudent._id %>')" id="saveBio">Save</button>
+            <div class="personal-data">
+                <div class="p-info">
+                    <p class="name">Name</p>
+                    <p class="name-ans">: <%= namearr[0] %> <%= namearr[1] %>
+                    </p>
+                </div>
+                <div class="p-info">
+                    <p class="name">Roll No</p>
+                    <p class="name-ans">: <%= mystudent.roll_no %>
+                    </p>
+                </div>
+                <div class="p-info">
+                    <p class="name">Branch</p>
+                    <p class="name-ans">: <%= mystudent.branch %>
+                    </p>
+                </div>
+                <div class="p-info">
+                    <p class="name">Year</p>
+                    <p class="name-ans">: <%= mystudent.current_year %>
+                    </p>
+                </div>
+                <div class="p-info">
+                    <p class="name">Phone</p>
+                    <p class="name-ans">: <%= mystudent.mobile_no %>
+                    </p>
+                </div>
+                <div class="p-info">
+                    <p class="name">Email</p>
+                    <p class="name-ans">: <%= mystudent.email %>
+                    </p>
+                </div>
+                <div class="p-info">
+                    <a href="/user/1/profile" class="btn-s">Go To Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="s-info-part">
+        <div class="prof-update">
+            <div class="m-head" style="font-size: small; pointer-events: none; margin-bottom: 0;">
+                Profile > Update 
+            </div>
+            <div class="pop_form" id="pop_form">
+                <form action="/user/1/updateImage" enctype="multipart/form-data" method="post" >
+                <div class="header">Upload Profile</div>
+                <div class="closer" onclick="closeUpdateProfile()">x</div>
+                <div class="input-field" style="width: 250px;">
+                    <input type="file" name="stud_img" required>
+                    <input type="hidden" name="student_id" value="<%= u_student._id %>" readonly>
+                </div>
+                <button class="btn-s" type="submit" style="width: 250px; height:35px; margin-top:12px;">
+                    <span class="btnText">Update Profile</span>
+                </button>
+               </form>
+            </div>
+            <div class="container">
+                <form action="/user/1/updateProfile" method="post" >
+                    <div class="form first">
+                        <div class="details personal">
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Enrollment No*</label>
+                                    <input type="number" name="enrollment_no" placeholder="Student enrollment no" value="<%= u_student.enrollment_no %>" readonly>
+                                    <input type="hidden" name="student_id" value="<%= u_student._id %>" readonly>
+                                </div>
+                                <div class="input-field">
+                                    <label>Roll No</label>
+                                    <input type="text" name="roll_no" placeholder="Student roll-no"  value="<%= u_student.roll_no %>">
+                                </div>
+                                <div class="input-field">
+                                    <label>Student Name</label>
+                                    <input type="text" name="username" placeholder="Student name"  value="<%= u_student.username %>">
+                                </div>
+                                <div class="input-field">
+                                    <label>Student Email</label>
+                                    <input type="text" name="email" placeholder="Student email"  value="<%= u_student.email %>">
+                                </div>
+                                <div class="input-field">
+                                    <label>Mobile No</label>
+                                    <input type="number" name="mobile_no" placeholder="Student mobile no" value="<%= u_student.mobile_no %>" >
+                                </div>
+
+                                <div class="input-field">
+                                    <label>Adhar No</label>
+                                    <input type="text" name="adhar_no" placeholder="Student adhar no" value="<%= u_student.adhar_no %>" >
+                                </div>
+                                <div class="input-field">
+                                    <label>Gender</label>
+                                    <select name="gender">
+                                        <option >Select Gender</option>
+                                        <option selected disabled><%= u_student.gender %></option>
+                                        <option>Male</option>
+                                        <option>Fe-male</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <label>Year</label>
+                                    <select name="current_year"  >
+                                        <option >Select Year</option>
+                                        <option selected disabled><%= u_student.current_year %></option>
+                                        <option>First year</option>
+                                        <option>Second year</option>
+                                        <option>Third Year</option>
+                                    </select>
+                                </div>
+                                <div class="input-field">
+                                    <label>Branch</label>
+                                    <select id="branch" name="branch"   >
+                                        <option>Select Branch</option>
+                                        <option selected disabled><%= u_student.branch %></option>
+                                        <% department.forEach(dept=> {  %>
+                                            <option><%= dept %></option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="details ID">
+                            <!-- <span class="title">Identity Details</span> -->
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label>Student State</label>
+                                    <select name="status" id="stud_status"  >
+                                        <option >Select Status</option>
+                                        <option selected disabled><%= u_student.status %></option>
+                                        <option>Active</option>
+                                        <option>In-Active</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn-s" type="submit">
+                                    <span class="btnText">Update Profile</span>
+                                    <i class="uil uil-navigator"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/students.js"></script>
+</body>
+
+</html>

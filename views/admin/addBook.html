@@ -1,0 +1,153 @@
+<%- include ('../partials/adminHeader.html') %>
+<link rel="stylesheet" href="/css/forms.css">
+    <title>Admin Add Book</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <%- include ('../partials/adminSidebar.html') %>
+    </div>
+    <section id="home-section">
+        <nav id="navbar">
+            <%- include ('../partials/adminNavbar.html') %>
+            <%- include ('../partials/alerts.html') %>
+        </nav>
+        <div id="admin-container">
+            <div id="admin-container1">
+                <div class="container">
+                    <header>Add New Book</header>
+                    <form action="/admin/books/add" enctype="multipart/form-data" method="post">
+                        <div class="form first">
+                            <div class="details personal">
+                                <span class="title">Book Details</span>
+                                <div class="fields">
+                                    <div class="input-field">
+                                        <label>Accession No*</label>
+                                        <input type="number" name="accession_no" placeholder="Enter accession no" value="<%= accession_nos %>" readonly required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Title</label>
+                                        <input type="text" name="book_title" placeholder="Enter book title" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Author</label>
+                                        <input type="text" name="book_author" placeholder="Enter book author" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Edition</label>
+                                        <input type="text" name="book_edition" placeholder="Enter book edition" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Place & Publisher</label>
+                                        <input type="text" name="place_and_publisher"  placeholder="Enter place & publisher" required >
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Book Publish Year</label>
+                                        <input type="date" name="book_published_year" placeholder="Enter published year" required >
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Total Pages</label>
+                                        <input type="text" name="total_pages" placeholder="Enter page count"  required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Volume </label>
+                                        <input type="text" name="book_volume" placeholder="Enter book volume" required >
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Book Schem</label>
+                                        <select name="book_schema" id="book_scheme" required>
+                                            <option >Select Scheme</option>
+                                            <option>All Books</option>
+                                            <% scheme.forEach(scheme=> {  %>
+                                                <option><%= scheme %></option>
+                                            <% }); %>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details ID">
+                                <!-- <span class="title">Identity Details</span> -->
+                                <div class="fields">
+                                    <div class="input-field">
+                                        <label>Related To*</label>
+                                        <select name="related_to" id="related_to" required>
+                                            <option >Select Department</option>
+                                            <option>All Department</option>
+                                            <% department.forEach(scheme=> {  %>
+                                                <option><%= scheme %></option>
+                                            <% }); %>
+                                        </select>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Source</label>
+                                        <input type="text" name="book_source" placeholder="Enter book source" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Bill No</label>
+                                        <input type="number" name="bill_no" placeholder="Enter bill number" >
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Bill Date</label>
+                                        <input type="date" name="bill_date" placeholder="Enter bill date" >
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Book Cost</label>
+                                        <input type="number" name="book_cost" placeholder="Enter book cost" >
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Classification No</label>
+                                        <input type="number" name="classification_no" placeholder="Enter classification number" >
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Quantity</label>
+                                        <input type="number" name="book_quantity" placeholder="Book quantity"  >
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Withdrawal Date</label>
+                                        <input type="date" name="withdrawal_date" placeholder="Enter withdrawal date"  >
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Withdrawal No</label>
+                                        <input type="number" name="withdrawal_no" placeholder="Enter withdrawal no"  >
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="img-book">Book Photo (.jpg/.jpeg/.png)</label>
+                                        <input type="file" name="book_img" accept="image/*" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Book Status</label>
+                                        <select name="book_status" id="book_status" required>
+                                            <option >Select State</option>
+                                            <option>Active</option>
+                                            <option>In-Active</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field">
+                                        <label>Remarks</label>
+                                        <input type="text" name="remarks" placeholder="Remarks" required>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <div class="backBtn">
+                                        <i class="uil uil-navigator"></i>
+                                        <span class="btnText">Clear</span>
+                                    </div>
+                                    <button class="sumbit">
+                                        <span class="btnText">Add Book</span>
+                                        <i class="uil uil-navigator"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script  src="/js/d_app.js"></script>
+</body>
+</html>

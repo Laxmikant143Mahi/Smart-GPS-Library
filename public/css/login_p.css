@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  padding: 20px 40px;
+}
+.login-section {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 5px solid white;
+  box-shadow: 0 0 20px rgba(255, 241, 254, 0.671);
+  border-radius: 5px;
+  position: relative;
+}
+
+.login-section .login-part,
+.login-section .image-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  overflow: hidden;
+}
+
+/* Login Part CSS */
+.login-section .login-part {
+  width: 48%;
+  background: #ffffff;
+  position: relative;
+}
+.login-section .login-part .log-container {
+  width: 400px;
+  height: 500px;
+  /* background: #fcfcfc; */
+  border: 4px solid White;
+  box-shadow: 2px 2px 20px #fafafa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.login-part .log-container .logo-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-part .log-container .logo-details i {
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgb(224, 224, 224);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.login-part .log-container .logo-details span {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 8px 0;
+}
+.log-container .inputbox {
+  position: relative;
+  width: 270px;
+  margin: 14px 0;
+}
+.log-container .inputbox select,
+.log-container .inputbox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  background: #ffffff;
+  outline: none;
+  color: rgb(78, 78, 78);
+  font-size: 0.9rem;
+}
+
+.log-container .inputbox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.473);
+  border-radius: 3px;
+  background: #ffffff;
+  outline: none;
+  color: rgb(78, 78, 78);
+  font-size: 0.9rem;
+}
+.log-container .inputbox span {
+  position: absolute;
+  left: 0;
+  padding: 13px;
+  pointer-events: none;
+  font-size: 0.7rem;
+  color: rgb(78, 78, 78);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: 0.3s;
+}
+.log-container .inputbox input:focus,
+.log-container .inputbox input:valid {
+  box-shadow: 0 2px 5px rgb(230, 230, 230);
+}
+.inputbox input:focus ~ span,
+.inputbox select:focus ~ span,
+.inputbox select:valid ~ span,
+.inputbox input:valid ~ span {
+  transform: translateX(10px) translateY(-5px);
+  padding: 0 10px;
+  background: white;
+  font-size: 0.65rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.295);
+  border-right: 1px solid rgba(0, 0, 0, 0.295);
+  letter-spacing: 0.2em;
+}
+
+.btnbox {
+  height: 80px;
+  width: 270px;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.btnbox.backbtn{
+  height: 20px;
+  width: 15%;
+  position: absolute;
+  bottom: 3%;
+  left: 1%;
+  z-index: 1;
+}
+.btnbox.backbtn a{
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background: #f8f8f8;
+  align-items: center;
+  box-shadow: 0 2px 5px rgb(245, 245, 245);
+  border: 2px solid white;
+  border-radius: 2px;
+  color: var(--font1);
+}
+.btnbox.backbtn a:hover{
+  background: #f5f5f5;
+  box-shadow: 0 2px 5px rgb(233, 233, 233);
+}
+.btnbox.backbtn a span{
+  font-size: 14px;
+}
+.btnbox a,
+.btnbox button {
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 3px;
+  background-color: #4070f4;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  width: 48%;
+  height: 30px;
+  font-weight:600;
+}
+.btnbox button span{
+  font-size: 18px;
+}
+.btnbox .backBtn {
+  background: #e22222;
+}
+
+.btnbox .backBtn:hover {
+  background: #c40707;
+}
+
+.btnbox .submit:hover {
+  background-color: #1750ee;
+  box-shadow: 0 3px 8px rgb(207, 207, 207);
+}
+
+/* Image Part */
+.login-section .image-part {
+  width: 52%;
+  position: relative;
+  border-radius: 10px;
+}
+.login-section .image-part .bgimg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* background-image: url('img3.avif'); */
+  /* background-image: url('img4.avif'); */
+  background-image: url('/image/img3.jpg');
+  /* background-image: url('img2.jpg'); */
+  /* background-image: url('img4.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+.login-section .image-part .bgcover {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #000;
+  opacity: 0.05;
+}
+
+.login-section .image-part .msg-con {
+  width: 80%;
+  height: 200px;
+  background: #cccccc77;
+  z-index: 5;
+  box-shadow: 0 0 5px #f3f3f3a4;
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 15px;
+}
+.login-section .image-part .msg-con .r-head {
+  color: #27282b;
+  position: relative;
+}
+.login-section .image-part .msg-con .r-head::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 2px;
+  background: #27282b;
+  bottom: 0;
+  border-top-right-radius: 60%;
+  border-bottom-right-radius: 60%;
+}
+.login-section .image-part .msg-con .r-description {
+  padding: 10px 0;
+  line-height: 22px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  letter-spacing: normal;
+}
+
+.login-section .image-part .msg-con .next {
+  position: absolute;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+  border: none;
+  line-height: 22px;
+  bottom: 6%;
+  right: 8%;
+  width: 48px;
+  height: 28px;
+  background: #f7f7f700;
+  border: 1px solid #d8d8d8bd;
+  border-radius: 4px;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.alert-container {
+  width: 80%;
+  position: absolute;
+  height: 40px;
+  z-index: 100;
+  text-align: center;
+  top: 20px;
+  left: 10%;
+}
+.alert-container div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.alert-container div button {
+  outline: none;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.alert-container .success {
+  background: #e6fff5;
+}
+.alert-container .error {
+  background: #ffe3e7;
+}

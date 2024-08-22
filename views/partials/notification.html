@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* .container {
+            display: flex;
+            justify-content: center;
+            background: #fafafa;
+            padding: 20px;
+            overflow: hidden;
+        } */
+
+        #notification {
+            background: #f8f8f8;
+            width: 350px;
+            height: 80vh;
+            border-radius:5px;
+            padding: 10px;
+            position: relative;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgb(240, 240, 240);
+            position: absolute;
+            top: 100%;right: 2%;
+        }
+
+        #notification #head {
+            position: absolute;
+            top: 10px;
+            width: 325px;
+            display: flex;
+            justify-content: space-between;
+            height: 35px;
+            padding: 10px;
+        }
+
+        #notification .not-box {
+            display: flex;
+            justify-content: space-around;
+            height: 110px;
+            padding: 8px;
+            border-bottom: 2px solid rgb(243, 243, 243);
+        }
+
+        #notification .not-box .img-con {
+            height: 100%;
+            max-width: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+
+        #notification .not-box .img-con img {
+            width: 80%;
+        }
+
+        #notification .not-box .info-con {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: self-start;
+            height: 100%;
+            width: 80%;
+            /* cursor: default; */
+        }
+
+        #notification .not-box .info-con .info {
+            height: 50px;
+            overflow: scroll;
+        }
+
+        #notification .not-box .info-con .info::-webkit-scrollbar {
+            display: none;
+        }
+
+        #notification .sub-head {
+            font-weight: 600;
+            color: rgb(94, 94, 94);
+        }
+
+        #notification .not-box .info-con .book-info {
+            font-weight: 500;
+            color: rgb(94, 94, 94);
+        }
+
+        #notification .not-box .info-con .buttons {
+            position: absolute;
+            bottom: 0px;
+            right: 5%;
+        }
+
+        #notification .not-box .info-con .buttons button {
+            border: none;
+            outline: none;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            height: 25px;
+            background-color: #4070f4;
+
+            transition: all 0.2s linear;
+            cursor: pointer;
+            font-size: 14px;
+            width: 65px;
+            font-weight: 400;
+        }
+
+        #notification .not-box .info-con .buttons .view {
+            color: #000000;
+            background: #fff;
+            margin-right: 8px;
+            border: 2px solid rgb(204, 204, 204);
+        }
+
+        #notification .not-box .info-con .buttons button:hover {
+            box-shadow: 0 3px 4px rgb(245, 241, 241);
+        }
+
+        #notification .not-box .info-con .buttons button:hover {
+            box-shadow: 0 2px 5px rgb(248, 248, 248);
+        }
+
+        #notification .not-con {
+            padding: 10px;
+            overflow: scroll;
+            margin-top: 35px;
+            /* border: 2px solid black; */
+            height: 90%;
+        }
+        #notification .not-con::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="notification">
+            <div id="head">
+                <p class="sub-head">Notification</p>
+                <i>|</i>
+            </div>
+            <div class="not-con">
+                <div class="not-box">
+                    <div class="img-con">
+                        <img src="../images/logo1.jpeg" alt="">
+                    </div>
+                    <div class="info-con">
+                        <div class="info">
+                            <p class="sub-head">Ghanasham Irashetti </p>
+                            <p class="book-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad perferendis
+                                nihil nam.</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="view">View</button>
+                            <button class="accept"> Accept</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="not-box">
+                    <div class="img-con">
+                        <img src="../images/logo1.jpeg" alt="">
+                    </div>
+                    <div class="info-con">
+                        <div class="info">
+                            <p class="sub-head">Ghanasham Irashetti </p>
+                            <p class="book-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad perferendis
+                                nihil nam.</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="view">View</button>
+                            <button class="accept"> Accept</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="not-box">
+                    <div class="img-con">
+                        <img src="../images/logo1.jpeg" alt="">
+                    </div>
+                    <div class="info-con">
+                        <div class="info">
+                            <p class="sub-head">Ghanasham Irashetti </p>
+                            <p class="book-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad perferendis
+                                nihil nam.</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="view">View</button>
+                            <button class="accept"> Accept</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="not-box">
+                    <div class="img-con">
+                        <img src="../images/logo1.jpeg" alt="">
+                    </div>
+                    <div class="info-con">
+                        <div class="info">
+                            <p class="sub-head">Ghanasham Irashetti </p>
+                            <p class="book-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad perferendis
+                                nihil nam.</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="view">View</button>
+                            <button class="accept"> Accept</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="not-box">
+                    <div class="img-con">
+                        <img src="../images/logo1.jpeg" alt="">
+                    </div>
+                    <div class="info-con">
+                        <div class="info">
+                            <p class="sub-head">Ghanasham Irashetti </p>
+                            <p class="book-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad perferendis
+                                nihil nam.</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="view">View</button>
+                            <button class="accept"> Accept</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="not-box">
+                    <div class="img-con">
+                        <img src="../images/logo1.jpeg" alt="">
+                    </div>
+                    <div class="info-con">
+                        <div class="info">
+                            <p class="sub-head">Ghanasham Irashetti </p>
+                            <p class="book-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad perferendis
+                                nihil nam.</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="view">View</button>
+                            <button class="accept"> Accept</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

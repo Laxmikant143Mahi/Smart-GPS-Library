@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="/images/app.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/login_p.css">
+</head>
+
+<body>
+    <div class="login-section">
+        <div class="login-part">
+            <div class="log-container">
+                <%- include ('../partials/alerts.html') %>
+                <form action="/auth/user-login" method="post">
+                    <div class="logo-details">
+                        <i class='bx bx-book-reader'></i>
+                        <span class="logo_name">g.p. Smart Library</span>
+                        <span class="logo_name" style="font-size: 14px; margin: 0;">Student Login</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" name="username" id="username" required>
+                        <span>Username</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="password" id="password" required>
+                        <span>Password</span>
+                    </div>
+                    <div class="btnbox">
+                        <button class="backBtn" type="reset">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Clear</span>
+                        </button>
+                        <button class="submit" type="submit">
+                            <span class="btnText">Login</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="image-part">
+            <div class="bgimg"></div>
+            <div class="bgcover"></div>
+            <div class="msg-con">
+                <h2 class="r-head">GPS Library Rule</h2>
+                <p class="r-description">"Everything you need for better future and success has already been written. And guess what? All you have to do is go to the library."</p>
+                <button class="next">></button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/alerts.js"></script>
+</body>
+</html>

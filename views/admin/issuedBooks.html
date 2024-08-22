@@ -1,0 +1,112 @@
+<%- include ('../partials/tableHeader.html') %>
+    <title>Admin issued books</title>
+    </head>
+
+    <body>
+        <div class="sidebar" id="sidebar">
+            <%- include ('../partials/adminSidebar.html') %>
+        </div>
+        <section id="home-section">
+            <nav id="navbar">
+                <%- include ('../partials/adminNavbar.html') %>
+                    <%- include ('../partials/alerts.html') %>
+            </nav>
+            <div id="admin-container">
+                <div id="admin-container1">
+                    <div id="list-container">
+                        <div class="t-container">
+                            <div class="div">
+                                <div class="input-field">
+                                    <button class="btn-e" style="width: 100px; font-weight: normal;" id="Active" onclick="getIssuedBooks()">Issued</button>
+                                </div>
+                                <div class="input-field">
+                                    <button class="btn-s" style="width: 100px; font-weight: normal;" id="In-Active" onclick="getReturnedBooks(id)">Returned</button>
+                                </div>
+                            </div>
+                            <form class="searchIssueForm" autocomplete="off" >
+                                <div class="input-field" id="t-search">
+                                    <input type="text" name="search"  placeholder="search-with-enrollment" required>
+                                    <button type="submit" id="sbtn"><i class='bx bx-search'></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="table-container">
+                            <table class="table" id="mytable">
+                                <thead id="t-head">
+                                    <tr class="unsolid">
+                                        <th>P/F</th>
+                                        <th class="name">Name</th>
+                                        <th class="en-no">Enrollment </th>
+                                        <th>Accession No</th>
+                                        <th>Book Title</th>
+                                        <th>Issue Date</th>
+                                        <th>Return Date</th>
+                                        <th>Book State</th>
+                                        <th>View</th>
+                                        <!-- <th>Options</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody id="myTableRow">
+                                    <div class="myrow" style="position: relative;">
+                                        <% var i_status=0 %>
+                                        <% if (issues_count > 0 ) { %>
+                                        <% issues.forEach(issued=> { %>
+                                        <% if(!issued.isReturn){ %>
+                                        <tr class="gfgselect solid ">
+                                            <td class="img"><img src="/<%= issued.student_info.stud_img; %>" alt=""></td>
+                                            <td class="s-name name">
+                                                <%=  issued.student_info.username; %>
+                                            </td>
+                                            <td class="en-no">
+                                                <%=  issued.student_info.enrollment_no; %>
+                                            </td>
+                                            <td class="book-ac-no">
+                                                <%=  issued.book_info.accession_no; %>
+                                            </td>
+                                            <td class="book_name">
+                                                <%=  issued.book_info.book_title; %>
+                                            </td>
+                                            <td class="issue_date">
+                                                <% 
+                                                let date = new Date(issued.book_info.issueDate);
+                                                date = date.toLocaleDateString();
+                                                %>
+                                                <%= date %>
+                                            </td>
+                                            <td class="retrun_date">
+                                                <% 
+                                                let r_date = new Date(issued.book_info.returnDate);
+                                                r_date = r_date.toLocaleDateString();
+                                                %>
+                                                <%=  r_date %>
+                                            </td>
+                                            <% if (!issued.isReturn) { %>
+                                            <td class="btns"><button class="btn-e" style="width: 100px; font-weight: normal;">Issued</button>
+                                            <% } else{%>
+                                                <td class="btns"><button class="btn-s" style="width: 100px; font-weight: normal;">Returned</button>
+                                            <% } %>
+                                            <td>
+                                                <button class="btn-s" style="width: 100px; font-weight: normal;" onclick="showIssuePopUp('<%= issued._id %>')">View</button>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                        <% }); %>
+                                        <% } else { %>
+                                        <% } %>
+                                        </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="pop-up-container" id="pop-up-container" >
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="/js/d_app.js" type="text/javascript"></script>
+        <script src="/js/tableFilter.js"></script>
+        <script src="/js/popup.js"></script>
+    </body>
+    </html>
+    <!-- <script src="/js/app.js"></script> -->

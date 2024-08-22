@@ -1,0 +1,54 @@
+<a href="/admin">
+<div class="logo-details">
+    <i class='bx bx-book-reader'></i>
+    <span class="logo_name">Smart Library</span>
+</div>
+</a>
+<!-- Creating Menu or Submenu -->
+<div class="menu-container">
+    <a href="/admin">
+        <div class="mainmenu" id="dasboard">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Dashboard</span>
+        </div>
+    </a>
+    <div class="separator"></div>
+    <div class="mainmenu " id="manage_book">
+        <i class='bx bx-book-content'></i>
+        <span class="links_name">Manage Book </span>
+        <i class='bx bx-chevron-down arrow '></i>
+    </div>
+    <div class="sub-menu " id="menu1">
+        <li id="Add_Book"><a href="/admin/books/add">Add Book</a> </li>
+        <!-- <li id="Update_Book"><a href="/admin/books/update">Update Book</a> </li> -->
+        <li id="Show Books"><a href="/admin/books/show">Show Books</a></li>
+        <li id="Show Books"><a href="/admin/books/return">Return Book</a></li>
+    </div>
+    <div class="mainmenu" id="book_maintence">
+        <i class='bx bx-book-open'></i>
+        <span class="links_name">Book Maintenance</span>
+        <i class='bx bx-chevron-down arrow'></i>
+    </div>
+    <div class="sub-menu" id="menu2">
+        <li id="Issue_book"><a href="/admin/books/issuedBooks">Issue Book</a> </li>
+        <li id="Reissue_book"><a href="#">Reissue Book</a> </li>
+    </div>
+    <div class="mainmenu" id="manage_student">
+        <i class='bx bxs-user-detail'></i>
+        <span class="links_name">Manage Student </span>
+        <i class='bx bx-chevron-down arrow '></i>
+    </div>
+    <div class="sub-menu" id="menu3">
+        <li id="Add_Student"><a href="/admin/students/add">Add Student</a> </li>
+        <!-- <li id="Remove_Student"><a href="#">Remove Student</a> </li> -->
+        <li id="All_Student"><a href="/admin/students/show">List All Student</a> </li>
+    </div>
+    <div class="mainmenu" id="df_list">
+        <i class='bx bx-book-content'></i>
+        <a href="/admin/defaulter-list" class="DFList">Defaulter List </a>
+    </div>
+</div>
+<div class="log-out">
+    <i class='bx bx-log-out'></i>
+    <a href="/adminLogout" class="links_name">Logout </a>
+</div>

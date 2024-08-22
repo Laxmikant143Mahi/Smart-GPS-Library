@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/login_p.css">
+</head>
+
+<body>
+    <div class="login-section">
+        <div class="login-part">
+            <div class="log-container">
+                <%- include ('../partials/alerts.html') %>
+                <form action="/auth/admin-signup" method="post">
+                    <div class="logo-details">
+                        <i class='bx bx-book-reader'></i>
+                        <span class="logo_name">g.p. Smart Library</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" name="username" id="username" required>
+                        <span>Username</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" name="password" id="password" required>
+                        <span>Password</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="text" name="s_code" id="s_code" required>
+                        <span>Secrete Code</span>
+                    </div>
+                    <div class="btnbox">
+                        <button class="backBtn" type="reset">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Clear</span>
+                        </button>
+                        <button class="submit" type="submit">
+                            <span class="btnText">Sign Up</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="image-part">
+            <div class="bgimg"></div>
+            <div class="bgcover"></div>
+            <div class="msg-con">
+                <h2 class="r-head">GPS Librart Rule 1</h2>
+                <p class="r-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quasi
+                    eum optio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit alias quis veritatis?</p>
+                <button class="next">></button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/alerts.js"></script>
+</body>
+</html>

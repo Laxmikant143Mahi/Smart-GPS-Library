@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --lightblue: #1479ff;
+  --softblue: #a3cef1;
+  --bgcolor: #fdfdfd;
+  --white: #ffffff;
+  --font1: #101223;
+  --font2: #282a3a;
+  --font3: #404252;
+  --inactivebg: #17c671;
+}
+
+.t-container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fdfdfd;
+  padding: 8px;
+}
+.t-container .div{
+  display: flex;
+  gap: 1rem;
+}
+.t-container .div>h4{
+  text-shadow: 2px 2px 2px #cccccc;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+.input-field {
+  position: relative;
+}
+.t-container .div {
+  display: flex;
+  align-items: center;
+}
+
+.input-field input,
+.input-field select {
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font3);
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  padding: 0 15px;
+  min-width: 150px;
+  box-shadow: 0 3px 5px rgba(241, 241, 241, 0.884);
+  height: 30px;
+}
+.input-field select:focus {
+  box-shadow: 0 3px 5px rgba(241, 241, 241, 0.884);
+}
+.input-field select {
+  color: #838383;
+}
+
+#t-search {
+  display: flex;
+  border: 2px solid rgb(255, 255, 255);
+  height: 35px;
+  border-radius: 4px;
+  position: relative;
+}
+
+#t-search #sbtn {
+  width: 35px;
+  height: 100%;
+  font-size: 16px;
+  text-align: center;
+  line-height: 35px;
+  color: var(--white);
+  background: var(--lightblue);
+  border: 1px solid var(--white);
+  box-shadow: 0 0 4px rgb(241, 241, 241);
+  border-radius: 5px;
+  cursor: pointer;
+}
+#t-search input {
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font3);
+  background-color: transparent;
+  border-radius: 4px;
+  border: none;
+  padding: 0 10px;
+  box-shadow: none;
+}
+/* Suggetions css */
+#t-search .suggestion-box {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bgcolor);
+  border: 2px solid white;
+  display: none;
+  border-radius: 3px;
+  margin-top: 40px;
+  left: 0;
+  padding: 3px;
+}
+#t-search .suggestion-box.show {
+  display: block;
+  opacity: 0;
+  animation: fadeIn 0.2s ease-in-out both;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -5%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+#t-search .suggestion-box li {
+  width: 100%;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  max-height: 100%;
+  border: 1px solid white;
+  margin: 1px 0;
+  cursor: pointer;
+}
+
+.table-container {
+  width: 100%;
+  height:78vh;
+  background: var(--bgcolor);
+  overflow: scroll;
+  margin: auto;
+  margin-top: 1%;
+  font-weight: normal;
+  box-shadow: 0 0px 8px rgba(248, 248, 248, 0.884);
+  border: 2px solid #ffffff;
+  position: relative;
+}
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+
+.table {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+  color: var(--font3);
+}
+td i {
+  font-weight: 700;
+  font-size: 18px;
+}
+th{
+  font-size: 14px;
+  font-weight: 500;
+}
+td.name,
+th.name{
+  width: 180px;
+}
+td.book_name,
+th.book_name{
+  width: 190px;
+  padding: -1px 4px;
+}
+td.img-book,
+th.img-book{
+  width: 60px;
+  text-align: center;
+}
+td.book-ac-no{
+  width: fit-content;
+  text-align: left;
+}
+td.book_cost{
+  /* width: 60px; */  
+  padding-left: 10px;
+
+}
+td.edition{
+  width: 100px;
+  /* text-align: center; */
+  padding-left: 10px;
+}
+th.en-no,
+td.en-no{
+  width:fit-content;
+  text-align: left;
+}
+td.book_scheme{
+  width: max-content;
+}
+td.author{
+  width: 140px;
+}
+td,
+th {
+  padding: .6rem 2px;
+  text-align: left;
+  margin: 0;
+}
+
+td.img img {
+  align-items: center;
+  /* border: 1px solid gray; */
+  box-shadow: 0 0 4px rgb(235, 235, 235);
+  border-radius: 50%;
+  padding: 1px;
+  height: 35px;
+  width: 35px;
+  object-fit: cover;
+}
+td.img-book img {
+  align-items: center;
+  width: 30px;
+  /* border: 1px solid gray; */
+  box-shadow: 0 0 4px rgb(223, 223, 223);
+  border-radius: 0%;
+  padding: 1px;
+}
+tbody tr {
+  transition: 0.3s ease-in;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  background: #ffffff;
+  color: var(--font3);
+}
+tbody tr:nth-child(even){
+  background: #fdfdfd;
+}
+tbody tr:hover {
+  /* background: #fafafa; */
+  cursor: pointer;
+  color: var(--font1);
+}
+th {
+  position: sticky;
+  top: 0;
+  background-color: var(--lightblue);
+  color: white;
+}
+td.btns{
+  width: 120px;
+}
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 28px;
+  font-size: 14px;
+}
+.Active {
+  background: #e6fff2;
+  border: 1.5px solid rgba(255, 255, 255, 0);
+  color: #00da74;
+}
+.Active:hover {
+  border: 1.5px solid #00da74;
+}
+.In-active {
+  color: #e2113e;
+  background: #ffe6eb;
+  border: 1.5px solid rgba(255, 255, 255, 0);
+}
+.In-active:hover {
+  box-shadow: rgb(245, 245, 245) 0px 5px 8px;
+  border: 1.5px solid #e2113e;
+}
+.sub-head {
+  color: #282a3a;
+  margin-bottom: 10px;
+}
+
+
+/* Pdf generator */
+#pdf {
+  border: 1px solid #e7e7e7;
+  width: 98%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 1rem;
+  gap: 1rem;
+  height: 100vh;
+ 
+  /* position: absolute;
+  top: 2%;
+  left: 5%;
+  background: #fff;
+  z-index: 100; */
+}
+#pdf .pdf-header h3{
+  font-style: italic;
+  word-spacing: .4rem;
+  margin-bottom: .2rem;
+}
+#pdf .pdf-header h4{
+  font-style: italic;
+  font-size: 14px;
+  word-spacing: .4rem;
+  margin-top: .2rem;
+}
+#pdf #pdf-table {
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: 1rem;
+  border: none;
+  width: 90%;
+}
+
+
+#pdf thead th {
+  padding: 0.4rem 0.2rem;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #2c2c2c;
+  color: #fff;
+}
+#pdf tbody tr{
+  border-bottom: none;
+}
+#pdf tbody tr td {
+  font-size: 14px;
+  font-weight: 500;
+  padding: .8rem .5rem;
+}
+
+#pdf td,
+#pdf th {
+  padding: .5rem;
+}
+
+#pdf .fine,
+#pdf .sr-no{
+ max-width: 4rem;
+ min-width: 2rem;
+}
+#pdf .acc-no{
+ min-width: 4rem;
+}
